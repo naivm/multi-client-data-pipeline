@@ -1,0 +1,9 @@
+
+version: 2
+
+sources:
+  - name: products
+    project: dbt_product_tables
+    tables:
+      - makt
+      - konv
