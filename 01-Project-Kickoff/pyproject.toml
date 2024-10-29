@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "project_kickoff"
+version = "0.1.0"
+description = "FastAPI project for interacting with France Travail API"
+authors = ["Paula Gorodicht <paulagorodicht@gmail.com>"]
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python ="^3.8.10"
+requests = "^2.30.0"
+fastapi = "^0.95.1"
+pydantic = "^1.10.2"
+uvicorn = "^0.22.0"
+python-dotenv = "^1.0.1"
+google-cloud-bigquery = "*" #  This line allows Poetry to always install the latest version of google-cloud-bigquery
+# dbt-core = "^1.1.1"
+# dbt-bigquery = "^1.1.0" #adding dbt
+
+[tool.poetry.scripts]
+start = "run_server:start"
+# start = "uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+#1. poetry lock
+#2. poetry install
+#3. poetry run start
+#docker build -t 920dd3ce4227 .
+
+
+
+# apache-airflow = "^2.6.0"
+# apache-airflow-providers-google = "^8.7.0"
+# docutils = "*"  # Set Python version restriction for docutils
