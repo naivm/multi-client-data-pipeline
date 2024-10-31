@@ -2,8 +2,23 @@
 version: 2
 
 sources:
-  - name: products
-    project: dbt_product_tables
+  - name: products_dev
+    schema: multi_pipeline
+    project: lewagon-433316
     tables:
-      - makt
-      - konv
+      - name: makt
+      - name: konv
+
+  - name: raw
+    #prod is airbyte output in eltl-pipeline VM
+    #dev is personal VM
+    schema: |
+      {%- if target.name == "dev" -%} multi_pipeline
+      {%- elif target.name == "prod" -%}
+      {%- else -%} invalid_target
+      {%- endif -%}
+    tables:
+      - name: konv
+      - name: mbew
+      - name: vbap
+      - name: vbak
