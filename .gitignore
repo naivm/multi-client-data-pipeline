@@ -166,3 +166,6 @@ cython_debug/
 *.parquet
 *.txt
 .envrc
+
+01-Project-Kickoff/app/enhanced-cable-424409-b7-d1d5573121bf.json
+
