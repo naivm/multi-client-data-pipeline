@@ -2,11 +2,11 @@
 WITH material_info AS (
     SELECT
         LPAD(CAST(mara.MATNR AS STRING), 18, '0') AS product_id,
-        mara.MATKL AS product_category,
+        cast(mara.MATKL as STRING) AS product_category,
         -- Classify client type based on product category (MATKL) in MARA
         CASE
-            WHEN CONCAT('abc', CAST(mara.MATKL AS STRING)) IN ('abc002', 'abc00207', 'abc00103') THEN 'Client A'
-            WHEN CONCAT('abc', CAST(mara.MATKL AS STRING)) IN ('abc001', 'abc004') THEN 'Client B'
+            WHEN CONCAT('abc', mara.MATKL) IN ('abc002', 'abc00207', 'abc00103') THEN 'Client A'
+            WHEN CONCAT('abc', mara.MATKL) IN ('abc001', 'abc004') THEN 'Client B'
             ELSE 'Other'
         END AS client_type
     FROM
@@ -40,3 +40,6 @@ FROM
     on_hand
 LEFT JOIN on_order ON on_hand.product_id = on_order.product_id
 LEFT JOIN material_info ON on_hand.product_id = material_info.product_id
+WHERE
+    material_info.client_type = 'Client B'
+GROUP BY on_hand.product_id, on_hand.on_hand_quantity, on_order.on_order_quantity, material_info.product_category, material_info.client_type
