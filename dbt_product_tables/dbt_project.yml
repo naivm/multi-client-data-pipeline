@@ -42,3 +42,9 @@ models:
     mart:
       +materialized: table
       +schema: production
+    client_a:
+      +materialized: table
+      +schema: production_client_a
+    client_b:
+      +materialized: table
+      +schema: production_client_b
