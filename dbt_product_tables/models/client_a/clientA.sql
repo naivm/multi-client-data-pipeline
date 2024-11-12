@@ -13,3 +13,5 @@ select
 from {{ref('int_kna1')}} as kna1
   right join transaction_a
     on kna1.kunnr = transaction_a.customer_id
+        WHERE
+            land1 is not NULL
