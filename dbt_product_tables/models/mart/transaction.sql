@@ -1,7 +1,7 @@
 
 WITH item_costs AS (
     SELECT
-        vbrp.VBELN AS transaction_id,
+        VBELN AS transaction_id,
         ROUND(SUM(NETWR),2) AS total_costs
     FROM
         {{ ref('int_vbrp') }}
