@@ -1,4 +1,3 @@
-
 version: 2
 
 models:
@@ -10,7 +9,7 @@ models:
   #      data_tests:
   #        - unique
   #        - not_null
-#
+  #
   #- name: my_second_dbt_model
   #  description: "A starter dbt model"
   #  columns:
@@ -25,7 +24,40 @@ models:
 
   - name: int_vbap
     description: "full view of table makt"
-
+    columns:
+     - name: mandt
+       data_type: int64
+       tests:
+        - not_null
+     - name: vbeln
+       data_type: string
+       quote: true
+     - name: erdat
+       data_type: date
+       quote: true
+     - name: waerk
+       data_type: string
+       quote: true
+     - name: matnr
+       data_type: string
+       tests:
+        - not_null
+       quote: true
+     - name: kwmeng
+       data_type: float64
+       quote: true
+     - name: netwr
+       data_type: float64
+       quote: true
+     - name: aufnr
+       data_type: int64
+       quote: true
+     - name: posnr
+       data_type: int64
+       quote: true
+     - name: werks
+       data_type: string
+       quote: true
   - name: int_vbak
     description: "full view of table konv"
 

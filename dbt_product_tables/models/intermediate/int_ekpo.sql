@@ -12,7 +12,9 @@ select
     matnr                         ,--AS material_number,
     menge                         ,--AS on_order_quantity,
     elikz                         ,--AS open_orders,
-
-
+    erekz                         ,--AS final_invoice
+    loekz                         ,--AS marked_deletion
+    wepos                         ,--AS goods_receipt_check1
+    weunb                         ,--AS goods_receipt_check2
 
 from ekpo
