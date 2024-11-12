@@ -37,4 +37,8 @@ models:
     staging:
       +materialized: view
     intermediate:
+      +schema: intermediate
       +materialized: table
+    mart:
+      +materialized: table
+      +schema: production
