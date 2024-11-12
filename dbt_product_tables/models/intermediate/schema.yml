@@ -20,8 +20,14 @@ models:
   #        - unique
   #        - not_null
 
-  - name: base_view_konv
+  - name: int_vbrp
     description: "full view of table konv"
 
-  - name: base_view_makt
+  - name: int_vbap
+    description: "full view of table makt"
+
+  - name: int_vbak
+    description: "full view of table konv"
+
+  - name: int_konv
     description: "full view of table makt"
