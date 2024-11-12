@@ -5,13 +5,8 @@ WITH material_info AS (
         mara.MATKL AS product_category,
         -- Classify client type based on product category (MATKL) in MARA
         CASE
-            WHEN MARA.MATKL IN ('11', '15', '17', '301', '801', '802', '807', '900',
-                                '1502', '1503', '1506', '1508', '1510', '1511', '1703', '1710',
-                                '50000000', '51000000', 'CONDIMENT', 'COOKING', 'CP10', 'CP30',
-                                'DETERGENT', 'R1111', 'R1112', 'R1113', 'R1114', 'R1121', 'R1122',
-                                'R1133') THEN 'Client A'
-            WHEN MARA.MATKL IN ('7', '12', '14', '25', '26', '50', '103', '105', '200',
-                                '202', '205', '207') THEN 'Client B'
+            WHEN CONCAT('abc', CAST(mara.MATKL AS STRING)) IN ('abc002', 'abc00207', 'abc00103') THEN 'Client A'
+            WHEN CONCAT('abc', CAST(mara.MATKL AS STRING)) IN ('abc001', 'abc004') THEN 'Client B'
             ELSE 'Other'
         END AS client_type
     FROM
